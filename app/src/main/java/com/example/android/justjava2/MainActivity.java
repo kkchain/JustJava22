@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int pricePerCup = 2;
-        displayPrice(quantity * pricePerCup);
+        String priceMessage = "Total: $ " + quantity * pricePerCup + "\n Thank You";
+        displayMessage(priceMessage);
     }
 
     /**
@@ -63,4 +65,11 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
 }
